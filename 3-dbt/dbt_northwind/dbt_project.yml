@@ -1,4 +1,4 @@
-# Projeto dbt Northwind — fonte da verdade dos modelos (espelhada em 4-airflow/dbt_olist/)
+# Projeto dbt Northwind — fonte da verdade dos modelos (espelhada em 4-airflow/dbt_northwind/)
 name: 'dbt_northwind'
 version: '1.0.0'
 
