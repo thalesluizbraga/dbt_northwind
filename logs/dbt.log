@@ -54,3 +54,59 @@
 [0m20:00:05.499770 [debug] [MainThread]: Command `dbt debug` failed at 20:00:05.499770 after 1.14 seconds
 [0m20:00:05.499770 [debug] [MainThread]: Connection 'debug' was properly closed.
 [0m20:00:05.499770 [debug] [MainThread]: Flushing usage events
+[0m20:22:25.754356 [debug] [MainThread]: Got an exception trying to initialize tracking
+
+
+============================== 20:22:25.916444 | c1e9f67b-f11d-4924-b885-4d9680932ba1 ==============================
+[0m20:22:25.916444 [info ] [MainThread]: Running with dbt=1.11.11
+[0m20:22:25.917443 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\User\\.dbt', 'invocation_command': 'dbt debug', 'use_colors': 'True', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m20:22:25.944791 [info ] [MainThread]: dbt version: 1.11.11
+[0m20:22:25.945793 [info ] [MainThread]: python version: 3.12.13
+[0m20:22:25.946788 [info ] [MainThread]: python path: C:\Users\User\Documents\repos\olist_project\2-local_setup\.venv\Scripts\python.exe
+[0m20:22:25.947780 [info ] [MainThread]: os info: Windows-11-10.0.26200-SP0
+[0m20:22:26.211599 [info ] [MainThread]: Using profiles dir at C:\Users\User\.dbt
+[0m20:22:26.212613 [info ] [MainThread]: Using profiles.yml file at C:\Users\User\.dbt\profiles.yml
+[0m20:22:26.212613 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\User\Documents\repos\dbt_northwind\dbt_project.yml
+[0m20:22:26.215117 [info ] [MainThread]: adapter type: postgres
+[0m20:22:26.216117 [info ] [MainThread]: adapter version: 1.10.0
+[0m20:22:26.216117 [info ] [MainThread]: Configuration:
+[0m20:22:26.217118 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m20:22:26.218117 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m20:22:26.219133 [info ] [MainThread]: Required dependencies:
+[0m20:22:26.219133 [debug] [MainThread]: Executing "git --help"
+[0m20:22:26.266442 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m20:22:26.266442 [debug] [MainThread]: STDERR: "b''"
+[0m20:22:26.267444 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m20:22:26.268450 [info ] [MainThread]: Connection:
+[0m20:22:26.269447 [info ] [MainThread]:   host: localhost
+[0m20:22:26.269447 [info ] [MainThread]:   port: 5433
+[0m20:22:26.270444 [info ] [MainThread]:   user: postgres
+[0m20:22:26.271443 [info ] [MainThread]:   database: dbt_db
+[0m20:22:26.271950 [info ] [MainThread]:   schema: public
+[0m20:22:26.272454 [info ] [MainThread]:   connect_timeout: 10
+[0m20:22:26.272454 [info ] [MainThread]:   role: None
+[0m20:22:26.273463 [info ] [MainThread]:   search_path: None
+[0m20:22:26.274467 [info ] [MainThread]:   keepalives_idle: 0
+[0m20:22:26.275464 [info ] [MainThread]:   sslmode: None
+[0m20:22:26.276463 [info ] [MainThread]:   sslcert: None
+[0m20:22:26.276969 [info ] [MainThread]:   sslkey: None
+[0m20:22:26.277982 [info ] [MainThread]:   sslrootcert: None
+[0m20:22:26.279002 [info ] [MainThread]:   application_name: dbt
+[0m20:22:26.279978 [info ] [MainThread]:   retries: 1
+[0m20:22:26.282531 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m20:22:26.788825 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m20:22:31.256363 [debug] [MainThread]: Using postgres connection "debug"
+[0m20:22:31.256925 [debug] [MainThread]: On debug: select 1 as id
+[0m20:22:31.256925 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m20:22:31.306699 [debug] [MainThread]: SQL status: SELECT 1 in 0.049 seconds
+[0m20:22:31.307744 [debug] [MainThread]: On debug: Close
+[0m20:22:31.308745 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m20:22:31.309713 [info ] [MainThread]: [31m1 check failed:[0m
+[0m20:22:31.310956 [info ] [MainThread]: Project loading failed for the following reason:
+ project path <C:\Users\User\Documents\repos\dbt_northwind\dbt_project.yml> not found
+
+[0m20:22:31.311949 [debug] [MainThread]: Command `dbt debug` failed at 20:22:31.311949 after 5.66 seconds
+[0m20:22:31.312950 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m20:22:31.313948 [debug] [MainThread]: Flushing usage events
