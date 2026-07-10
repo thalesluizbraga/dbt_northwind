@@ -1,0 +1,148 @@
+version: 2
+
+sources:
+  - name: northwind
+    description: "Dados brutos Northwind carregados via ETL no schema raw do Postgres."
+    schema: raw
+    tables:
+      - name: raw_categories
+        description: "Categorias de produtos (categories.csv)."
+      - name: raw_customers
+        description: "Clientes (customers.csv)."
+      - name: raw_customer_customer_demo
+        description: "Relação cliente x tipo (customer_customer_demo.csv)."
+      - name: raw_customer_demographics
+        description: "Tipos demográficos de clientes (customer_demographics.csv)."
+      - name: raw_employees
+        description: "Funcionários (employees.csv)."
+      - name: raw_employee_territories
+        description: "Territórios por funcionário (employee_territories.csv)."
+      - name: raw_orders
+        description: "Pedidos (orders.csv)."
+      - name: raw_order_details
+        description: "Itens dos pedidos (order_details.csv)."
+      - name: raw_products
+        description: "Produtos (products.csv)."
+      - name: raw_region
+        description: "Regiões (region.csv)."
+      - name: raw_shippers
+        description: "Transportadoras (shippers.csv)."
+      - name: raw_suppliers
+        description: "Fornecedores (suppliers.csv)."
+      - name: raw_territories
+        description: "Territórios (territories.csv)."
+      - name: raw_us_states
+        description: "Estados dos EUA (us_states.csv)."
+
+models:
+  - name: staging_categories
+    description: "Padronização das categorias de produtos."
+    columns:
+      - name: id_categoria
+        tests: [unique, not_null]
+
+  - name: staging_customers
+    description: "Padronização dos clientes."
+    columns:
+      - name: id_cliente
+        tests: [unique, not_null]
+
+  - name: staging_employees
+    description: "Padronização dos funcionários."
+    columns:
+      - name: id_funcionario
+        tests: [unique, not_null]
+
+  - name: staging_orders
+    description: "Padronização dos pedidos."
+    columns:
+      - name: id_pedido
+        tests: [unique, not_null]
+      - name: id_cliente
+        tests:
+          - not_null
+          - relationships:
+              to: ref('staging_customers')
+              field: id_cliente
+
+  - name: staging_order_details
+    description: "Padronização dos itens de pedido."
+    columns:
+      - name: id_pedido
+        tests:
+          - not_null
+          - relationships:
+              to: ref('staging_orders')
+              field: id_pedido
+      - name: id_produto
+        tests:
+          - not_null
+          - relationships:
+              to: ref('staging_products')
+              field: id_produto
+
+  - name: staging_products
+    description: "Padronização dos produtos."
+    columns:
+      - name: id_produto
+        tests: [unique, not_null]
+      - name: id_categoria
+        tests:
+          - not_null
+          - relationships:
+              to: ref('staging_categories')
+              field: id_categoria
+
+  - name: staging_suppliers
+    description: "Padronização dos fornecedores."
+    columns:
+      - name: id_fornecedor
+        tests: [unique, not_null]
+
+  - name: staging_shippers
+    description: "Padronização das transportadoras."
+    columns:
+      - name: id_transportadora
+        tests: [unique, not_null]
+
+  - name: staging_regions
+    description: "Padronização das regiões."
+    columns:
+      - name: id_regiao
+        tests: [unique, not_null]
+
+  - name: staging_territories
+    description: "Padronização dos territórios."
+    columns:
+      - name: id_territorio
+        tests: [unique, not_null]
+      - name: id_regiao
+        tests:
+          - not_null
+          - relationships:
+              to: ref('staging_regions')
+              field: id_regiao
+
+  - name: staging_employee_territories
+    description: "Relação funcionário x território."
+    columns:
+      - name: id_funcionario
+        tests:
+          - not_null
+          - relationships:
+              to: ref('staging_employees')
+              field: id_funcionario
+      - name: id_territorio
+        tests:
+          - not_null
+          - relationships:
+              to: ref('staging_territories')
+              field: id_territorio
+
+  - name: staging_us_states
+    description: "Padronização dos estados dos EUA."
+    columns:
+      - name: id_estado
+        tests: [unique, not_null]
+      - name: sigla_estado
+        tests: [unique, not_null]

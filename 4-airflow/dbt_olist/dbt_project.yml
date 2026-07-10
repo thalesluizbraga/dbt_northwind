@@ -1,0 +1,26 @@
+
+# Projeto dbt Northwind — fonte da verdade dos modelos (espelhada em 4-airflow/dbt_olist/)
+name: 'dbt_northwind'
+version: '1.0.0'
+
+profile: 'dbt_northwind'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  dbt_northwind:
+    1_staging:
+      +materialized: view
+    2_intermediate:
+      +materialized: view
+    3_marts:
+      +materialized: table

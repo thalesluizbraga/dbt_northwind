@@ -1,0 +1,10 @@
+# Template da connection Postgres local (copie para airflow_settings.yaml na 1ª vez).
+airflow:
+  connections:
+    - conn_id: northwind_postgres
+      conn_type: postgres
+      conn_host: host.docker.internal
+      conn_port: 5433
+      conn_login: postgres
+      conn_password: postgres
+      conn_schema: dbt_db
