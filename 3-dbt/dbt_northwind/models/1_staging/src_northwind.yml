@@ -9,10 +9,6 @@ sources:
         description: "Categorias de produtos (categories.csv)."
       - name: raw_customers
         description: "Clientes (customers.csv)."
-      - name: raw_customer_customer_demo
-        description: "Relação cliente x tipo (customer_customer_demo.csv)."
-      - name: raw_customer_demographics
-        description: "Tipos demográficos de clientes (customer_demographics.csv)."
       - name: raw_employees
         description: "Funcionários (employees.csv)."
       - name: raw_employee_territories
@@ -35,25 +31,25 @@ sources:
         description: "Estados dos EUA (us_states.csv)."
 
 models:
-  - name: staging_categories
+  - name: stg_northwind__categories
     description: "Padronização das categorias de produtos."
     columns:
       - name: id_categoria
         tests: [unique, not_null]
 
-  - name: staging_customers
+  - name: stg_northwind__customers
     description: "Padronização dos clientes."
     columns:
       - name: id_cliente
         tests: [unique, not_null]
 
-  - name: staging_employees
+  - name: stg_northwind__employees
     description: "Padronização dos funcionários."
     columns:
       - name: id_funcionario
         tests: [unique, not_null]
 
-  - name: staging_orders
+  - name: stg_northwind__orders
     description: "Padronização dos pedidos."
     columns:
       - name: id_pedido
@@ -62,26 +58,26 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('staging_customers')
+              to: ref('stg_northwind__customers')
               field: id_cliente
 
-  - name: staging_order_details
+  - name: stg_northwind__order_details
     description: "Padronização dos itens de pedido."
     columns:
       - name: id_pedido
         tests:
           - not_null
           - relationships:
-              to: ref('staging_orders')
+              to: ref('stg_northwind__orders')
               field: id_pedido
       - name: id_produto
         tests:
           - not_null
           - relationships:
-              to: ref('staging_products')
+              to: ref('stg_northwind__products')
               field: id_produto
 
-  - name: staging_products
+  - name: stg_northwind__products
     description: "Padronização dos produtos."
     columns:
       - name: id_produto
@@ -90,28 +86,28 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('staging_categories')
+              to: ref('stg_northwind__categories')
               field: id_categoria
 
-  - name: staging_suppliers
+  - name: stg_northwind__suppliers
     description: "Padronização dos fornecedores."
     columns:
       - name: id_fornecedor
         tests: [unique, not_null]
 
-  - name: staging_shippers
+  - name: stg_northwind__shippers
     description: "Padronização das transportadoras."
     columns:
       - name: id_transportadora
         tests: [unique, not_null]
 
-  - name: staging_regions
+  - name: stg_northwind__regions
     description: "Padronização das regiões."
     columns:
       - name: id_regiao
         tests: [unique, not_null]
 
-  - name: staging_territories
+  - name: stg_northwind__territories
     description: "Padronização dos territórios."
     columns:
       - name: id_territorio
@@ -120,26 +116,26 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('staging_regions')
+              to: ref('stg_northwind__regions')
               field: id_regiao
 
-  - name: staging_employee_territories
+  - name: stg_northwind__employee_territories
     description: "Relação funcionário x território."
     columns:
       - name: id_funcionario
         tests:
           - not_null
           - relationships:
-              to: ref('staging_employees')
+              to: ref('stg_northwind__employees')
               field: id_funcionario
       - name: id_territorio
         tests:
           - not_null
           - relationships:
-              to: ref('staging_territories')
+              to: ref('stg_northwind__territories')
               field: id_territorio
 
-  - name: staging_us_states
+  - name: stg_northwind__us_states
     description: "Padronização dos estados dos EUA."
     columns:
       - name: id_estado

@@ -22,6 +22,8 @@ from sqlalchemy.engine import Engine
 RAW_SCHEMA = "raw"  # mesmo schema declarado em 3-dbt/.../src_northwind.yml
 CSV_DELIMITER = ";"
 CHUNK_SIZE = 5_000
+SKIP_CSV_STEMS = frozenset({"customer_demographics", "customer_customer_demo"})
+DROP_RAW_TABLES = ("raw_customer_demographics", "raw_customer_customer_demo")
 
 SETUP_DIR = Path(__file__).resolve().parents[1]
 PROJECT_ROOT = SETUP_DIR.parent
@@ -90,8 +92,16 @@ def run(data_dir: Path | None = None) -> None:
     print(f"Origem:  {source}\n")
 
     for csv_path in csv_files:
+        if csv_path.stem in SKIP_CSV_STEMS:
+            print(f"  {csv_path.name} -> ignorado (fora do escopo do projeto)")
+            continue
         table_name, rows = load_csv(engine, csv_path)
         print(f"  {csv_path.name} -> {RAW_SCHEMA}.{table_name} ({rows:,} linhas)")
+
+    with engine.begin() as conn:
+        for table_name in DROP_RAW_TABLES:
+            conn.execute(text(f"DROP TABLE IF EXISTS {RAW_SCHEMA}.{table_name}"))
+            print(f"  DROP TABLE IF EXISTS {RAW_SCHEMA}.{table_name}")
 
     print("\nETL concluído.")
 

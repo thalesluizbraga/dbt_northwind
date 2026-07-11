@@ -2,7 +2,6 @@
 # Uso: .\run-dbt.ps1 debug
 #      .\run-dbt.ps1 run --select 1_staging
 #      .\run-dbt.ps1 test --select 1_staging
-#      .\run-dbt.ps1 docs serve          # usa porta 8081 (DBT_DOCS_PORT) para não conflitar com Airflow
 
 param(
     [Parameter(ValueFromRemainingArguments = $true)]
@@ -33,13 +32,4 @@ Get-Content $EnvFile | ForEach-Object {
 $env:DBT_PROFILES_DIR = $ProfilesDir
 Set-Location $ProjectDir
 
-$isDocsServe = ($DbtArgs.Count -ge 2 -and $DbtArgs[0] -eq "docs" -and $DbtArgs[1] -eq "serve")
-$hasPortFlag = $DbtArgs -contains "--port"
-
-if ($isDocsServe -and -not $hasPortFlag) {
-    $docsPort = if ($env:DBT_DOCS_PORT) { $env:DBT_DOCS_PORT } else { "8081" }
-    Write-Host "dbt docs serve na porta $docsPort (Airflow usa 8080)" -ForegroundColor Cyan
-    & $VenvDbt @DbtArgs --port $docsPort
-} else {
-    & $VenvDbt @DbtArgs
-}
+& $VenvDbt @DbtArgs

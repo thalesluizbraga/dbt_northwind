@@ -14,7 +14,7 @@ from cosmos import DbtTaskGroup, ExecutionConfig, ProfileConfig, ProjectConfig
 from cosmos.profiles import PostgresUserPasswordProfileMapping
 from pendulum import datetime
 
-DBT_PROJECT_PATH = "/usr/local/airflow/dbt_olist"
+DBT_PROJECT_PATH = "/usr/local/airflow/dbt_northwind"
 
 profile_config = ProfileConfig(
     profile_name="dbt_northwind",

@@ -3,11 +3,11 @@
 
 x-airflow-common: &airflow-common
   extra_hosts:
-    # Permite que containers acessem serviços no host (Postgres Olist em :5433)
+    # Permite que containers acessem serviços no host (Postgres Northwind em :5433)
     - "host.docker.internal:host-gateway"
   volumes:
-    # Espelha 4-airflow/dbt_olist → path usado em dags/dag.py (DBT_PROJECT_PATH)
-    - ./dbt_olist:/usr/local/airflow/dbt_olist:ro
+    # Espelha 4-airflow/dbt_northwind → path usado em dags/dag.py (DBT_PROJECT_PATH)
+    - ./dbt_northwind:/usr/local/airflow/dbt_northwind:ro
 
 services:
   scheduler:

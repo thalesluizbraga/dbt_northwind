@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: fct_order_items
+    description: "Fato no grão item de pedido com métricas de receita e entrega."
+    columns:
+      - name: id_pedido
+        tests: [not_null]
+      - name: id_produto
+        tests: [not_null]
+      - name: receita_liquida
+        tests: [not_null]
+
+  - name: dim_customer_status
+    description: "Status de atividade do cliente com base em recência de pedidos."
+    columns:
+      - name: id_cliente
+        tests: [unique, not_null]
+      - name: status_cliente
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['ativo', 'em_risco', 'churned']
+
+  - name: agg_customer_metrics_monthly
+    description: "Métricas mensais por cliente para RFM e tendência de ticket."
+    columns:
+      - name: id_cliente
+        tests: [not_null]
+      - name: mes_referencia
+        tests: [not_null]
+
+  - name: agg_region_revenue_monthly
+    description: "Receita mensal por região e país de entrega."
+    columns:
+      - name: mes_referencia
+        tests: [not_null]
+      - name: pais_entrega
+        tests: [not_null]
+
+  - name: agg_employee_performance_monthly
+    description: "Performance mensal por funcionário."
+    columns:
+      - name: id_funcionario
+        tests: [not_null]
+      - name: mes_referencia
+        tests: [not_null]

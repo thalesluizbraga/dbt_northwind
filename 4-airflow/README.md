@@ -1,4 +1,4 @@
-# Olist — Airflow (Astro)
+# Northwind — Airflow (Astro)
 
 Orquestra transformações dbt via [Cosmos](https://astronomer.github.io/astronomer-cosmos/).
 
@@ -19,13 +19,13 @@ astro dev start
 ```
 
 - UI: http://localhost:8080 (`admin` / `admin`)
-- DAG: `olist_pipeline` (somente dbt, sem recarga de CSV)
+- DAG: `northwind_pipeline` (somente dbt, sem recarga de CSV)
 
 ## Arquivos principais
 
 | Arquivo | Função |
 |---------|--------|
 | `dags/dag.py` | DAG + Cosmos DbtTaskGroup |
-| `dbt_olist/` | Espelho de `3-dbt/dbt_olist/` |
+| `dbt_northwind/` | Espelho de `3-dbt/dbt_northwind/` |
 | `Dockerfile` | venv com dbt-postgres |
-| `airflow_settings.yaml` | Connection `olist_postgres` |
+| `airflow_settings.yaml` | Connection `northwind_postgres` |
