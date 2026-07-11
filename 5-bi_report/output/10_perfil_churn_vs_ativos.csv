@@ -1,0 +1,124 @@
+﻿dimensao,valor,grupo,qtd_clientes,pct_no_grupo
+cidade,London,ativo,5,6.94
+cidade,Buenos Aires,ativo,3,4.17
+cidade,México D.F.,ativo,3,4.17
+cidade,Rio de Janeiro,ativo,3,4.17
+cidade,Lisboa,ativo,2,2.78
+cidade,Madrid,ativo,2,2.78
+cidade,Nantes,ativo,2,2.78
+cidade,Portland,ativo,2,2.78
+cidade,Sao Paulo,ativo,2,2.78
+cidade,Aachen,ativo,1,1.39
+cidade,Albuquerque,ativo,1,1.39
+cidade,Anchorage,ativo,1,1.39
+cidade,Århus,ativo,1,1.39
+cidade,Barcelona,ativo,1,1.39
+cidade,Barquisimeto,ativo,1,1.39
+cidade,Bergamo,ativo,1,1.39
+cidade,Berlin,ativo,1,1.39
+cidade,Bern,ativo,1,1.39
+cidade,Boise,ativo,1,1.39
+cidade,Bräcke,ativo,1,1.39
+cidade,Brandenburg,ativo,1,1.39
+cidade,Bruxelles,ativo,1,1.39
+cidade,Butte,ativo,1,1.39
+cidade,Campinas,ativo,1,1.39
+cidade,Caracas,ativo,1,1.39
+cidade,Charleroi,ativo,1,1.39
+cidade,Cork,ativo,1,1.39
+cidade,Cunewalde,ativo,1,1.39
+cidade,Eugene,ativo,1,1.39
+cidade,Frankfurt a.M.,ativo,1,1.39
+cidade,Genève,ativo,1,1.39
+cidade,Graz,ativo,1,1.39
+cidade,Helsinki,ativo,1,1.39
+cidade,I. de Margarita,ativo,1,1.39
+cidade,Kobenhavn,ativo,1,1.39
+cidade,Köln,ativo,1,1.39
+cidade,Lander,ativo,1,1.39
+cidade,Leipzig,ativo,1,1.39
+cidade,Mannheim,ativo,1,1.39
+cidade,Marseille,ativo,1,1.39
+cidade,München,ativo,1,1.39
+cidade,Münster,ativo,1,1.39
+cidade,Oulu,ativo,1,1.39
+cidade,Paris,ativo,1,1.39
+cidade,Reggio Emilia,ativo,1,1.39
+cidade,Resende,ativo,1,1.39
+cidade,Salzburg,ativo,1,1.39
+cidade,San Cristóbal,ativo,1,1.39
+cidade,Seattle,ativo,1,1.39
+cidade,Sevilla,ativo,1,1.39
+cidade,Stavern,ativo,1,1.39
+cidade,Stuttgart,ativo,1,1.39
+cidade,Torino,ativo,1,1.39
+cidade,Toulouse,ativo,1,1.39
+cidade,Tsawassen,ativo,1,1.39
+cidade,Vancouver,ativo,1,1.39
+cidade,Warszawa,ativo,1,1.39
+cidade,México D.F.,potencial_churn,2,11.76
+cidade,Sao Paulo,potencial_churn,2,11.76
+cidade,Cowes,potencial_churn,1,5.88
+cidade,Elgin,potencial_churn,1,5.88
+cidade,Kirkland,potencial_churn,1,5.88
+cidade,Lille,potencial_churn,1,5.88
+cidade,London,potencial_churn,1,5.88
+cidade,Luleå,potencial_churn,1,5.88
+cidade,Lyon,potencial_churn,1,5.88
+cidade,Montréal,potencial_churn,1,5.88
+cidade,Reims,potencial_churn,1,5.88
+cidade,San Francisco,potencial_churn,1,5.88
+cidade,Strasbourg,potencial_churn,1,5.88
+cidade,Versailles,potencial_churn,1,5.88
+cidade,Walla Walla,potencial_churn,1,5.88
+pais,Germany,ativo,11,15.28
+pais,USA,ativo,9,12.5
+pais,Brazil,ativo,7,9.72
+pais,France,ativo,5,6.94
+pais,UK,ativo,5,6.94
+pais,Spain,ativo,4,5.56
+pais,Venezuela,ativo,4,5.56
+pais,Argentina,ativo,3,4.17
+pais,Italy,ativo,3,4.17
+pais,Mexico,ativo,3,4.17
+pais,Austria,ativo,2,2.78
+pais,Belgium,ativo,2,2.78
+pais,Canada,ativo,2,2.78
+pais,Denmark,ativo,2,2.78
+pais,Finland,ativo,2,2.78
+pais,Portugal,ativo,2,2.78
+pais,Switzerland,ativo,2,2.78
+pais,Ireland,ativo,1,1.39
+pais,Norway,ativo,1,1.39
+pais,Poland,ativo,1,1.39
+pais,Sweden,ativo,1,1.39
+pais,France,potencial_churn,5,29.41
+pais,USA,potencial_churn,4,23.53
+pais,Brazil,potencial_churn,2,11.76
+pais,Mexico,potencial_churn,2,11.76
+pais,UK,potencial_churn,2,11.76
+pais,Canada,potencial_churn,1,5.88
+pais,Sweden,potencial_churn,1,5.88
+regiao,Região não informada,ativo,49,68.06
+regiao,SP,ativo,4,5.56
+regiao,OR,ativo,3,4.17
+regiao,RJ,ativo,3,4.17
+regiao,BC,ativo,2,2.78
+regiao,AK,ativo,1,1.39
+regiao,Co. Cork,ativo,1,1.39
+regiao,DF,ativo,1,1.39
+regiao,ID,ativo,1,1.39
+regiao,Lara,ativo,1,1.39
+regiao,MT,ativo,1,1.39
+regiao,NM,ativo,1,1.39
+regiao,Nueva Esparta,ativo,1,1.39
+regiao,Táchira,ativo,1,1.39
+regiao,WA,ativo,1,1.39
+regiao,WY,ativo,1,1.39
+regiao,Região não informada,potencial_churn,9,52.94
+regiao,SP,potencial_churn,2,11.76
+regiao,WA,potencial_churn,2,11.76
+regiao,CA,potencial_churn,1,5.88
+regiao,Isle of Wight,potencial_churn,1,5.88
+regiao,OR,potencial_churn,1,5.88
+regiao,Québec,potencial_churn,1,5.88

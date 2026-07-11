@@ -3,6 +3,7 @@
 # Uso: ./run-dbt.sh debug
 #      ./run-dbt.sh run --select 1_staging
 #      ./run-dbt.sh test --select 1_staging
+#      ./run-dbt.sh docs serve          # usa porta 8081 (DBT_DOCS_PORT) para não conflitar com Airflow
 
 set -euo pipefail
 
@@ -27,4 +28,11 @@ set +a
 
 export DBT_PROFILES_DIR="$PROJECT_DIR"
 cd "$PROJECT_DIR"
+
+if [[ "${1:-}" == "docs" && "${2:-}" == "serve" ]] && [[ " $* " != *" --port "* ]]; then
+  DOCS_PORT="${DBT_DOCS_PORT:-8081}"
+  echo "dbt docs serve na porta ${DOCS_PORT} (Airflow usa 8080)"
+  exec "$DBT_BIN" docs serve --port "$DOCS_PORT" "${@:3}"
+fi
+
 exec "$DBT_BIN" "$@"
