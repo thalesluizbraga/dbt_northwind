@@ -1,0 +1,3 @@
+﻿tipo_pedido,qtd_pedidos,pct_pedidos,ticket_medio,desconto_medio,receita_total
+com_desconto,380,45.78,1702.35,233.33,646893.96
+sem_desconto,450,54.22,1375.33,0.0,618899.33

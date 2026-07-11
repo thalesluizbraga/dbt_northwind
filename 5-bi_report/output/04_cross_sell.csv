@@ -1,0 +1,16 @@
+﻿categoria_a,categoria_b,qtd_pedidos_juntos,ticket_medio_pedidos_com_par
+Beverages,Confections,119,2300.55
+Beverages,Dairy Products,110,2444.5
+Beverages,Seafood,105,2036.31
+Confections,Dairy Products,94,2186.65
+Dairy Products,Seafood,92,2294.35
+Confections,Seafood,85,2130.71
+Beverages,Condiments,77,2414.49
+Condiments,Confections,66,2264.81
+Beverages,Grains/Cereals,63,1865.93
+Grains/Cereals,Seafood,62,1703.02
+Condiments,Dairy Products,60,2295.18
+Confections,Grains/Cereals,60,1913.82
+Beverages,Meat/Poultry,58,2396.95
+Meat/Poultry,Seafood,53,2363.77
+Dairy Products,Grains/Cereals,53,2175.41

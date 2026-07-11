@@ -1,0 +1,144 @@
+﻿tipo_produto,id_produto,nome_produto,qtd_linhas,qtd_clientes,qtd_pedidos,receita_total,receita_media_item
+ancora,38,Côte de Blaye,2,2,2,14756.0,7378.0
+ancora,59,Raclette Courdavault,11,11,11,9695.4,881.4
+ancora,60,Camembert Pierrot,4,4,4,5535.2,1383.8
+ancora,29,Thüringer Rostbratwurst,4,4,4,5445.24,1361.31
+ancora,62,Tarte au sucre,9,9,9,5251.05,583.45
+ancora,20,Sir Rodney's Marmalade,3,3,3,4341.6,1447.2
+ancora,51,Manjimup Dried Apples,2,2,2,2957.4,1478.7
+ancora,40,Boston Crab Meat,8,8,8,2785.7,348.21
+ancora,18,Carnarvon Tigers,2,2,2,2725.0,1362.5
+ancora,63,Vegie-spread,2,2,2,2667.6,1333.8
+ancora,72,Mozzarella di Giovanni,7,7,7,2363.7,337.67
+ancora,16,Pavlova,7,7,7,2312.55,330.36
+ancora,65,Louisiana Fiery Hot Pepper Sauce,7,7,7,2264.4,323.49
+ancora,2,Chang,5,5,5,2204.0,440.8
+ancora,69,Gudbrandsdalsost,5,5,5,1920.96,384.19
+ancora,28,Rössle Sauerkraut,4,4,4,1915.4,478.85
+ancora,57,Ravioli Angelo,4,4,4,1641.9,410.48
+ancora,31,Gorgonzola Telino,5,5,5,1447.5,289.5
+ancora,39,Chartreuse verte,5,5,5,1428.3,285.66
+ancora,5,Chef Anton's Gumbo Mix,3,3,3,1387.2,462.4
+ancora,70,Outback Lager,7,7,7,1359.0,194.14
+ancora,10,Ikura,3,3,3,1334.24,444.75
+ancora,27,Schoggi Schokolade,2,2,2,1316.5,658.25
+ancora,17,Alice Mutton,2,2,2,1287.0,643.5
+ancora,35,Steeleye Stout,4,4,4,1256.4,314.1
+ancora,55,Pâté chinois,4,4,4,1086.72,271.68
+ancora,36,Inlagd Sill,2,2,2,836.0,418.0
+ancora,76,Lakkalikööri,3,3,3,807.84,269.28
+ancora,11,Queso Cabrales,4,4,4,795.48,198.87
+ancora,34,Sasquatch Ale,3,3,3,784.0,261.33
+ancora,4,Chef Anton's Cajun Seasoning,2,2,2,707.52,353.76
+ancora,14,Tofu,3,3,3,669.6,223.2
+ancora,56,Gnocchi di nonna Alice,2,2,2,668.8,334.4
+ancora,3,Aniseed Syrup,2,2,2,640.0,320.0
+ancora,68,Scottish Longbreads,6,6,6,617.0,102.83
+ancora,41,Jack's New England Clam Chowder,5,5,5,583.53,116.71
+ancora,75,Rhönbräu Klosterbier,4,4,4,578.77,144.69
+ancora,77,Original Frankfurter grüne Soße,6,6,6,561.6,93.6
+ancora,7,Uncle Bob's Organic Dried Pears,2,2,2,510.0,255.0
+ancora,54,Tourtière,6,6,6,491.2,81.87
+ancora,15,Genen Shouyu,3,3,3,465.0,155.0
+ancora,44,Gula Malacca,2,2,2,442.5,221.25
+ancora,64,Wimmers gute Semmelknödel,2,2,2,438.9,219.45
+ancora,46,Spegesild,3,3,3,428.4,142.8
+ancora,53,Perth Pasties,1,1,1,393.0,393.0
+ancora,12,Queso Manchego La Pastora,1,1,1,346.56,346.56
+ancora,71,Flotemysost,2,2,2,344.0,172.0
+ancora,21,Sir Rodney's Scones,3,3,3,336.0,112.0
+ancora,33,Geitost,7,7,7,316.5,45.21
+ancora,73,Röd Kaviar,1,1,1,300.0,300.0
+ancora,22,Gustaf's Knäckebröd,2,2,2,297.36,148.68
+ancora,42,Singaporean Hokkien Fried Mee,3,3,3,254.8,84.93
+ancora,24,Guaraná Fantástica,5,5,5,252.54,50.51
+ancora,49,Maxilaku,1,1,1,240.0,240.0
+ancora,37,Gravad lax,2,2,2,228.8,114.4
+ancora,26,Gumbär Gummibärchen,2,2,2,199.2,99.6
+ancora,50,Valkoinen suklaa,1,1,1,175.5,175.5
+ancora,74,Longlife Tofu,1,1,1,168.0,168.0
+ancora,58,Escargots de Bourgogne,1,1,1,159.0,159.0
+ancora,25,NuNuCa Nuß-Nougat-Creme,2,2,2,156.8,78.4
+ancora,52,Filo Mix,2,2,2,154.0,77.0
+ancora,19,Teatime Chocolate Biscuits,2,2,2,138.7,69.35
+ancora,32,Mascarpone Fabioli,1,1,1,122.88,122.88
+ancora,47,Zaanse koeken,1,1,1,97.28,97.28
+ancora,23,Tunnbröd,1,1,1,72.0,72.0
+ancora,13,Konbu,1,1,1,48.0,48.0
+expansao,38,Côte de Blaye,22,17,22,126640.74,5756.4
+expansao,29,Thüringer Rostbratwurst,28,23,28,74923.45,2675.84
+expansao,59,Raclette Courdavault,43,35,43,61460.3,1429.31
+expansao,62,Tarte au sucre,39,28,39,41983.94,1076.51
+expansao,56,Gnocchi di nonna Alice,48,33,48,41924.26,873.42
+expansao,60,Camembert Pierrot,47,34,47,41290.28,878.52
+expansao,51,Manjimup Dried Apples,37,30,37,38862.25,1050.33
+expansao,17,Alice Mutton,35,22,35,31411.38,897.47
+expansao,18,Carnarvon Tigers,25,20,25,26446.88,1057.88
+expansao,28,Rössle Sauerkraut,29,23,29,23781.24,820.04
+expansao,43,Ipoh Coffee,28,26,28,23526.7,840.24
+expansao,72,Mozzarella di Giovanni,31,28,31,22536.43,726.98
+expansao,7,Uncle Bob's Organic Dried Pears,27,19,27,21534.3,797.57
+expansao,64,Wimmers gute Semmelknödel,28,17,28,21519.08,768.54
+expansao,53,Perth Pasties,29,24,29,20181.17,695.9
+expansao,69,Gudbrandsdalsost,26,20,26,20021.4,770.05
+expansao,26,Gumbär Gummibärchen,30,22,30,19649.94,655.0
+expansao,10,Ikura,30,25,30,19533.1,651.1
+expansao,71,Flotemysost,40,26,40,19207.04,480.18
+expansao,20,Sir Rodney's Marmalade,13,11,13,18221.76,1401.67
+expansao,55,Pâté chinois,29,22,29,16339.68,563.44
+expansao,40,Boston Crab Meat,33,23,33,15124.93,458.33
+expansao,76,Lakkalikööri,36,31,36,14952.6,415.35
+expansao,16,Pavlova,36,26,36,14903.27,413.98
+expansao,61,Sirop d'érable,24,22,24,14352.6,598.03
+expansao,2,Chang,39,27,39,14151.96,362.87
+expansao,63,Vegie-spread,15,13,15,14033.5,935.57
+expansao,27,Schoggi Schokolade,7,7,7,13783.38,1969.05
+expansao,31,Gorgonzola Telino,46,30,46,13473.39,292.9
+expansao,30,Nord-Ost Matjeshering,32,22,32,13424.2,419.51
+expansao,1,Chai,38,31,38,12788.1,336.53
+expansao,8,Northwoods Cranberry Sauce,13,13,13,12772.0,982.46
+expansao,36,Inlagd Sill,29,22,29,12622.46,435.26
+expansao,35,Steeleye Stout,32,26,32,12387.6,387.11
+expansao,11,Queso Cabrales,34,30,34,12106.29,356.07
+expansao,12,Queso Manchego La Pastora,13,11,13,11911.1,916.24
+expansao,65,Louisiana Fiery Hot Pepper Sauce,25,20,25,11605.51,464.22
+expansao,39,Chartreuse verte,25,21,25,10866.24,434.65
+expansao,44,Gula Malacca,22,16,22,9473.47,430.61
+expansao,70,Outback Lager,32,25,32,9313.65,291.05
+expansao,49,Maxilaku,20,18,20,9004.6,450.23
+expansao,21,Sir Rodney's Scones,36,26,36,8768.0,243.56
+expansao,77,Original Frankfurter grüne Soße,32,23,32,8610.03,269.06
+expansao,42,Singaporean Hokkien Fried Mee,27,18,27,8320.2,308.16
+expansao,32,Mascarpone Fabioli,14,11,14,8281.28,591.52
+expansao,68,Scottish Longbreads,28,23,28,8097.0,289.18
+expansao,41,Jack's New England Clam Chowder,42,31,42,8096.83,192.78
+expansao,4,Chef Anton's Cajun Seasoning,18,15,18,7860.38,436.69
+expansao,75,Rhönbräu Klosterbier,42,30,42,7598.73,180.92
+expansao,14,Tofu,19,15,19,7321.89,385.36
+expansao,9,Mishi Kobe Niku,5,5,5,7226.5,1445.3
+expansao,6,Grandma's Boysenberry Spread,12,11,12,7137.0,594.75
+expansao,22,Gustaf's Knäckebröd,12,12,12,6825.0,568.75
+expansao,57,Ravioli Angelo,19,18,19,6019.65,316.82
+expansao,19,Teatime Chocolate Biscuits,35,26,35,5723.92,163.54
+expansao,58,Escargots de Bourgogne,17,16,17,5722.68,336.63
+expansao,34,Sasquatch Ale,16,12,16,5566.4,347.9
+expansao,46,Spegesild,24,22,24,5454.6,227.28
+expansao,13,Konbu,39,29,39,4912.44,125.96
+expansao,23,Tunnbröd,19,16,19,4529.7,238.41
+expansao,45,Rogede sild,14,12,14,4338.18,309.87
+expansao,24,Guaraná Fantástica,46,31,46,4251.83,92.43
+expansao,54,Tourtière,30,25,30,4237.04,141.23
+expansao,5,Chef Anton's Gumbo Mix,7,7,7,3960.01,565.72
+expansao,47,Zaanse koeken,20,17,20,3860.8,193.04
+expansao,73,Röd Kaviar,13,10,13,3697.2,284.4
+expansao,25,NuNuCa Nuß-Nougat-Creme,16,15,16,3547.6,221.73
+expansao,66,Louisiana Hot Spiced Okra,8,8,8,3383.0,422.88
+expansao,50,Valkoinen suklaa,9,8,9,3262.19,362.47
+expansao,52,Filo Mix,27,25,27,3078.95,114.04
+expansao,37,Gravad lax,4,4,4,2459.6,614.9
+expansao,3,Aniseed Syrup,10,9,10,2404.0,240.4
+expansao,67,Laughing Lumberjack Lager,10,10,10,2396.8,239.68
+expansao,74,Longlife Tofu,12,11,12,2264.5,188.71
+expansao,48,Chocolade,6,6,6,1368.71,228.12
+expansao,33,Geitost,25,21,25,1331.63,53.27
+expansao,15,Genen Shouyu,3,3,3,1319.83,439.94
