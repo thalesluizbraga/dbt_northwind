@@ -1,0 +1,17 @@
+# SQLTools / editor session files
+*.session.sql
+con.session.sql
+
+# Word / Office temporários
+~$*
+~WRL*.tmp
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.env
+
+# OS
+.DS_Store
+Thumbs.db
