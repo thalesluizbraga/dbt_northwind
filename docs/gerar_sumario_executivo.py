@@ -299,7 +299,10 @@ def build_document(arch_img: Path) -> Path:
             "Combinações de alto valor: Beverages + Dairy Products (ticket médio R$ 2.444) e "
             "Beverages + Condiments (R$ 2.414) no mesmo pedido.",
             "Oportunidades regionais: Meat/Poultry em Co. Cork (R$ 4.183) e Beverages em Québec (R$ 3.139).",
-            "Produtos âncora atraem novos clientes; produtos de expansão elevam valor em pedidos subsequentes.",
+            "Produtos âncora (1º pedido) geram R$ 98,5 mil em receita; produtos de expansão (pedidos seguintes) "
+            "geram R$ 1,17 mi (~92% do total). A expansão domina porque ocorre em todo o ciclo de vida do cliente, "
+            "não porque os produtos âncora são fracos — ex.: Côte de Blaye aparece nos dois grupos, mas com "
+            "R$ 14,8 mil na entrada e R$ 126,6 mil em recompras.",
             "Pedidos com desconto (45,8%) têm ticket médio de R$ 1.702 vs R$ 1.375 sem desconto.",
         ],
     )
@@ -352,7 +355,8 @@ def build_document(arch_img: Path) -> Path:
         [
             "Campanhas de cross-sell com pares Beverages + Dairy/Condiments por região de alto ticket.",
             "Playbook comercial dos top 10 clientes (45% da receita).",
-            "Produtos âncora na aquisição; produtos de expansão no upsell pós-primeiro pedido.",
+            "Usar produtos âncora (Côte de Blaye, Raclette Courdavault) em campanhas de aquisição; "
+            "priorizar upsell/cross-sell dos mesmos produtos e do mix de expansão após o 1º pedido.",
             "Revisar descontos: manter em pedidos de alto volume, evitar em pedidos abaixo de R$ 1.375.",
         ],
     )
