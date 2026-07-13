@@ -2,10 +2,12 @@
 with final as (
     select
         mes_referencia,
-        receita_mes,
-        qtd_pedidos_mes
+        sum(receita_mes) as receita_mes,
+        count(qtd_pedidos_mes) as qtd_pedidos_mes
     from public.agg_customer_metrics_monthly
+    group by mes_referencia
     order by mes_referencia asc
+
 )
 
 

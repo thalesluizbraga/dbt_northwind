@@ -1,0 +1,40 @@
+﻿secao,rotulo,qtd_pedidos,pct_pedidos,ticket_medio,desconto_medio,receita_total,desconto_medio_pct,pct_itens_com_desconto,ticket_medio_item
+resumo,com_desconto,380,45.78,1702.35,233.33,646893.96,,,
+resumo,sem_desconto,450,54.22,1375.33,,618899.33,,,
+categoria,Meat/Poultry,161,,,199.56,,0.1467,43.93,942.33
+categoria,Dairy Products,303,,,118.47,,0.1377,38.8,640.73
+categoria,Beverages,354,,,118.09,,0.1582,39.11,663.04
+categoria,Produce,129,,,117.42,,0.1373,33.09,735.18
+categoria,Condiments,193,,,89.97,,0.1338,39.35,490.96
+categoria,Grains/Cereals,182,,,79.08,,0.141,32.14,488.49
+categoria,Seafood,291,,,76.75,,0.1473,40.91,397.76
+categoria,Confections,295,,,72.7,,0.1419,40.12,501.07
+funcionario,Robert King,72,,,199.14,,0.1542,47.73,707.77
+funcionario,Andrew Fuller,96,,,147.52,,0.1388,31.54,691.03
+funcionario,Anne Dodsworth,43,,,120.34,,0.1553,43.93,722.51
+funcionario,Steven Buchanan,42,,,114.84,,0.1322,50.43,587.97
+funcionario,Margaret Peacock,156,,,101.74,,0.1515,40.48,554.5
+funcionario,Janet Leverling,127,,,98.45,,0.1534,32.4,631.82
+funcionario,Nancy Davolio,123,,,74.34,,0.1259,39.13,556.83
+funcionario,Laura Callahan,104,,,68.5,,0.1553,36.15,487.93
+funcionario,Michael Suyama,67,,,62.1,,0.1326,41.07,439.96
+regiao,Co. Cork,19,,,209.64,,0.1786,63.64,908.73
+regiao,ID,31,,,209.47,,0.1778,46.55,899.67
+regiao,Québec,13,,,195.98,,0.1088,53.13,902.26
+regiao,BC,17,,,129.01,,0.2107,32.56,495.91
+regiao,AK,10,,,114.77,,0.16,41.67,632.39
+regiao,SP,49,,,98.37,,0.141,50.83,458.07
+regiao,WA,19,,,94.99,,0.1528,35.29,574.35
+regiao,Região não informada,507,,,94.91,,0.1389,37.11,567.17
+regiao,Lara,14,,,92.02,,0.1737,55.88,472.84
+regiao,WY,9,,,87.34,,0.1542,60.0,572.08
+regiao,OR,28,,,85.98,,0.1107,26.92,561.35
+regiao,Táchira,18,,,84.28,,0.15,22.22,505.97
+regiao,Nueva Esparta,12,,,83.12,,0.1824,48.57,470.76
+regiao,RJ,34,,,60.07,,0.1441,40.96,625.99
+regiao,Essex,13,,,59.41,,0.1,23.33,446.36
+regiao,CA,4,,,51.69,,0.1375,80.0,307.65
+regiao,NM,18,,,44.16,,0.0958,36.62,719.69
+regiao,MT,3,,,,,,0.0,243.41
+regiao,Isle of Wight,10,,,,,,0.0,267.23
+regiao,DF,2,,,,,,0.0,372.18

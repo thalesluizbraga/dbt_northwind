@@ -98,7 +98,7 @@ cd ../3-dbt/dbt_northwind
 ./run-dbt.sh test
 ```
 
-Documentação interativa do dbt: **http://localhost:8081** (`.\run-dbt-docs.ps1`)
+> Documentação interativa dos modelos: ver seção [**Documentação dbt (dbt docs)**](#documentação-dbt-dbt-docs) abaixo.
 
 ### 5. Rodar as análises (Jupyter)
 
@@ -182,20 +182,138 @@ agg_*   agregados mensais (cliente, região, funcionário)
 
 ---
 
+## Documentação dbt (dbt docs)
+
+Site interativo com **linhagem**, descrições dos modelos, colunas, testes e SQL compilado. Útil para entender como os dados fluem do `raw` até os marts usados no BI.
+
+### Portas locais (evitar conflito com Airflow)
+
+| Serviço | URL | Porta padrão neste projeto |
+|---------|-----|----------------------------|
+| **Airflow** (opcional) | http://localhost:8080 | `8080` |
+| **dbt docs** | http://localhost:8081 | `8081` |
+
+O `dbt docs serve` usa **8080 por padrão** — a mesma do Airflow. Os scripts `run-dbt.ps1` / `run-dbt.sh` deste repositório sobem a documentação automaticamente na **8081** (variável `DBT_DOCS_PORT` no `.env`, se quiser outra porta).
+
+**Pré-requisitos:** Postgres ativo e pelo menos um `dbt run` concluído (para gerar o `manifest.json`).
+
+### Comandos
+
+Sempre dentro de `3-dbt/dbt_northwind/`.
+
+**Gerar + servir (recomendado):**
+
+```powershell
+cd 3-dbt\dbt_northwind
+.\run-dbt-docs.ps1
+```
+
+```bash
+cd 3-dbt/dbt_northwind
+./run-dbt-docs.sh
+```
+
+Abra no navegador: **http://localhost:8081** (Ctrl+C no terminal para encerrar).
+
+**Passo a passo (gerar e servir separadamente):**
+
+```powershell
+.\run-dbt.ps1 docs generate    # gera target/manifest.json e target/catalog.json
+.\run-dbt.ps1 docs serve       # sobe o site na porta 8081
+```
+
+```bash
+./run-dbt.sh docs generate
+./run-dbt.sh docs serve
+```
+
+**Outra porta (ex.: 8090):**
+
+```powershell
+.\run-dbt.ps1 docs serve --port 8090
+```
+
+Ou defina no `2-local_setup/.env`:
+
+```env
+DBT_DOCS_PORT=8090
+```
+
+### O que você pode ver na interface
+
+**1. Overview do projeto**  
+Lista de todos os modelos organizados por pasta (`1_staging`, `2_intermediate`, `3_marts`).
+
+**2. Grafo de linhagem (Lineage)**  
+Diagrama interativo mostrando dependências entre tabelas. Exemplo de fluxo:
+
+```text
+source:northwind.raw_order_details
+    → stg_northwind__order_details
+    → int_order_items
+    → fct_order_items
+         ↘ dim_customer_status
+         ↘ agg_customer_metrics_monthly
+```
+
+Clique em um nó para ver detalhes; use o filtro para isolar um modelo (ex.: `fct_order_items`).
+
+**3. Página de cada modelo**  
+Ao abrir um modelo, você vê:
+
+| O que aparece | Exemplo neste projeto |
+|---------------|----------------------|
+| Descrição do modelo | `fct_order_items` — *"Fato no grão item de pedido com métricas de receita e entrega."* |
+| Colunas documentadas | `receita_liquida`, `valor_desconto`, `tem_desconto`, `regiao_entrega` |
+| Testes de qualidade | `not_null` em `id_pedido`; `accepted_values` em `status_cliente` (`ativo`, `em_risco`, `churned`) |
+| SQL compilado | Query final enviada ao Postgres (aba **Code**) |
+| Dependências upstream/downstream | Quais modelos alimentam e são alimentados por aquele modelo |
+
+**4. Sources (fontes raw)**  
+Tabelas do schema `raw` carregadas pelo ETL, com descrição de origem:
+
+- `raw_orders` ← `orders.csv`
+- `raw_order_details` ← `order_details.csv`
+- `raw_customers` ← `customers.csv`
+
+**5. Column lineage**  
+Na página de um modelo, rastreie uma coluna (ex.: `receita_liquida`) até os campos de origem em staging e raw.
+
+**6. Testes**  
+Visão dos testes configurados em `src_northwind.yml` e `marts.yml` (`unique`, `not_null`, `accepted_values`) e status após `dbt test`.
+
+> Mais detalhes dos wrappers dbt: `3-dbt/dbt_northwind/README.md`
+
+---
+
 ## Análises disponíveis
 
-Notebook: `5-bi_report/northwind_analyses.ipynb`
+Notebook: `5-bi_report/northwind_analyses.ipynb`  
+Saídas: CSV e PNG em `5-bi_report/output/`
+
+### 1 — Visão geral
 
 | # | Análise | SQL | Objetivo de negócio |
 |---|---------|-----|---------------------|
-| 1.1 | Receita mensal | `01_receita_e_qtd_pedidos_mensal.sql` | Evolução de receita e volume |
-| 1.2 | Top 10 clientes | `02_top_clientes_receita_pedidos_tm.sql` | Concentração da carteira |
-| 1.3 | Categoria × região | `03_top_categoria_regiao_ticket_medio.sql` | Oportunidades regionais de ticket |
-| 2.1 | Cross-sell | `04_cross_sell_categorias.sql` | Pares de categorias no mesmo pedido |
-| 2.2 | Âncora vs expansão | `05_produtos_ancora_expansao.sql` | Aquisição vs monetização do relacionamento |
-| 3.1 | Coorte de retenção | `06_cohort_retencao.sql` | Quando clientes param de voltar |
-| 3.2 | Clientes em declínio | `07_clientes_em_declinio.sql` | Early warning de churn |
-| 3.3 | Perfil churn vs ativos | `08_perfil_churn_vs_ativos.sql` | Onde estão os clientes em risco |
+| 1.1 | Receita mensal | `01_receita_e_qtd_pedidos_mensal.sql` | Evolução de receita e volume de pedidos |
+| 1.2 | Top 10 clientes | `02_top_clientes_receita_pedidos_tm.sql` | Concentração da carteira (receita, pedidos e ticket) |
+
+### 2 — Aumento de ticket médio (TM)
+
+| # | Análise | SQL | Objetivo de negócio |
+|---|---------|-----|---------------------|
+| 2.1 | Categoria × região | `03_top_categoria_regiao_ticket_medio.sql` | Combinações com maior ticket médio |
+| 2.2 | Cross-sell | `04_cross_sell_categorias.sql` | Pares de categorias comprados no mesmo pedido |
+| 2.3 | Âncora vs expansão | `05_produtos_ancora_expansao.sql` | Aquisição (1º pedido) vs monetização do relacionamento |
+| 2.4 | Impacto do desconto | `09_impacto_desconto.sql` | Verificar se descontos comprimem ticket ou estimulam volume |
+
+### 3 — Redução de churn
+
+| # | Análise | SQL | Objetivo de negócio |
+|---|---------|-----|---------------------|
+| 3.1 | Churn trimestral (90 dias) | `06_churn_trimestral.sql` | Evolução de ativos, novos e churn por trimestre |
+| 3.2 | Clientes em declínio | `07_clientes_em_declinio.sql` | Early warning com base na periodicidade entre compras |
+| 3.3 | Perfil churn vs ativos | `08_perfil_churn_vs_ativos.sql` | Perfil geográfico e comportamental dos clientes em risco |
 
 ---
 
@@ -225,14 +343,37 @@ Definições adotadas no notebook `northwind_analyses.ipynb` e no `Sumario_Execu
 | **% receita no total** | `100 × receita_cliente / receita_total_carteira` |
 | **% pedidos no total** | `100 × pedidos_cliente / pedidos_total_carteira` |
 
-### Desconto
+### Desconto e impacto no ticket (análise 2.4)
+
+Classificação e resumo no **nível do pedido** (`09_impacto_desconto.sql`):
 
 | Métrica | Fórmula / definição |
 |---------|---------------------|
 | **Pedido com desconto** | Pedido com ao menos um item onde `desconto > 0` |
-| **Ticket médio com desconto** | Média do valor do pedido apenas entre pedidos com desconto |
-| **Ticket médio sem desconto** | Média do valor do pedido apenas entre pedidos sem desconto |
-| **% pedidos com desconto** | Proporção de pedidos que tiveram desconto |
+| **Pedido sem desconto** | Pedido em que nenhum item tem `desconto > 0` |
+| **Ticket do pedido** | `sum(receita_liquida)` de todos os itens do `id_pedido` |
+| **Ticket médio com desconto** | Média do ticket apenas entre pedidos com desconto |
+| **Ticket médio sem desconto** | Média do ticket apenas entre pedidos sem desconto |
+| **% pedidos com desconto** | `100 × qtd_pedidos_com_desconto / total_pedidos` |
+| **Desconto médio por pedido** | Média de `sum(valor_desconto)` do pedido, apenas entre pedidos com desconto |
+| **Receita total por tipo** | Soma do ticket dos pedidos com ou sem desconto |
+
+Breakdown dimensional no **nível do item** (categoria, funcionário, região):
+
+| Métrica | Fórmula / definição |
+|---------|---------------------|
+| **Desconto médio (R$)** | Média de `valor_desconto` nos itens com `desconto > 0` da dimensão |
+| **Desconto médio % (taxa)** | Média do campo `desconto` (0–1) nos itens com desconto da dimensão |
+| **% itens com desconto** | `100 × itens_com_desconto / total_itens` na dimensão |
+| **Ticket médio por item** | Média de `receita_liquida` por linha na dimensão (não confundir com ticket do pedido) |
+
+**Interpretação (2.4):**
+
+- Se **ticket médio com desconto > ticket médio sem desconto** → desconto associado a pedidos maiores (estímulo de volume).
+- Se **ticket médio com desconto < ticket médio sem desconto** → desconto associado a pedidos menores (possível compressão de ticket).
+
+**Tabelas usadas:** `fct_order_items`, `dim_categories`, `dim_employees`  
+**Saídas:** `09_impacto_desconto.csv`, `09_impacto_desconto.png`, `09_impacto_desconto_funcionarios.png`
 
 ### Cross-sell e categoria × região
 
@@ -260,9 +401,14 @@ Definições adotadas no notebook `northwind_analyses.ipynb` e no `Sumario_Execu
 | **Em risco** | Sem pedido há mais de **90 dias** e até 180 dias |
 | **Ativo** | Pedido nos últimos 90 dias |
 | **Dias desde último pedido** | `data_referencia - data_ultimo_pedido` (referência = última data do dataset) |
-| **Coorte** | Mês do **primeiro pedido** do cliente |
-| **Meses desde coorte** | Meses calendário entre o mês da coorte e o mês da atividade |
-| **Taxa de retenção** | `100 × clientes_ativos_no_mês_N / tamanho_da_coorte` |
+| **Churn trimestral (90 dias)** | Cliente com último pedido há **mais de 90 dias** na data de fechamento do trimestre |
+| **Início da análise trimestral** | Primeiro mês de dados + 90 dias (ex.: jan → 1ª medição em mar) |
+| **Clientes carteira** | Clientes com ao menos um pedido até o fim do trimestre |
+| **Clientes mantidos ativos** | Ativos no fim do trimestre que já estavam ativos no trimestre anterior |
+| **Clientes novos no trimestre** | Primeira compra ocorreu dentro do trimestre e seguem ativos (≤ 90 dias) |
+| **Clientes reativados** | Voltaram a comprar no trimestre após período inativo (incluídos em "mantidos" no gráfico) |
+| **Taxa de churn trimestral** | `100 × clientes_churn / clientes_carteira` no fim do trimestre |
+| **Taxa de ativos trimestral** | `100 × clientes_ativos / clientes_carteira` (último pedido ≤ 90 dias) |
 | **Intervalo médio entre pedidos** | Média de dias entre pedidos consecutivos do cliente |
 | **Periodicidade média global** | Média dos intervalos médios de todos os clientes com 2+ pedidos |
 | **Potencial churn** | `dias_desde_ultimo_pedido > intervalo_medio_dias` do cliente (ou da média global, se 1 pedido) |
@@ -289,9 +435,10 @@ Definições adotadas no notebook `northwind_analyses.ipynb` e no `Sumario_Execu
 |----------|---------|
 | `docker: command not found` | Instale e abra o Docker Desktop |
 | Porta 5433 em uso | Pare o serviço conflitante ou altere `DBT_PORT` no `.env` |
-| `git add .` falha | Remova `con.session.sql` (arquivo temporário do SQLTools) — já está no `.gitignore` |
+| `git add .` não adiciona arquivos | Rode `git add .` na **raiz** do repositório (`dbt_northwind/`), não em subpastas como `2-local_setup/`. De dentro de qualquer pasta, use `git add -A` para incluir tudo |
+| `git add .` falha (SQLTools) | Remova `con.session.sql` (arquivo temporário do SQLTools) — já está no `.gitignore` |
 | Notebook sem gráfico | Execute a célula de setup primeiro; confirme kernel `Python 3 (2-local_setup)` |
-| SQL não encontrado no notebook | Use os arquivos `06_`, `07_`, `08_` para análises de churn |
+| SQL não encontrado no notebook | Confira `5-bi_report/sql/` — churn usa `06_`–`08_`; desconto usa `09_impacto_desconto.sql` |
 | Tabelas vazias | Rode `uv run python -m etl.load_raw` e depois `.\run-dbt.ps1 run` |
 
 ---

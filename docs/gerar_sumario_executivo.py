@@ -40,8 +40,8 @@ CHART_SECTIONS = [
         "section": "3.2 Como reduzir o churn?",
         "charts": [
             (
-                "08_cohort_retencao.png",
-                "Figura 5 — Coorte de retenção: heatmap por mês da coorte e curva média ponderada.",
+                "06_churn_trimestral.png",
+                "Figura 5 — Churn trimestral: clientes com mais de 90 dias sem comprar no fechamento de cada trimestre.",
             ),
             (
                 "09_clientes_em_declinio.png",
@@ -314,7 +314,7 @@ def build_document(arch_img: Path) -> Path:
     add_bullets(
         doc,
         [
-            "Coorte de retenção: queda de 100% para ~39% no mês 1 após o primeiro pedido.",
+            "Churn trimestral (90 dias): evolução de 0% (Q3/1996) a ~37% (Q2/1998), com média entre 28% e 35% nos trimestres intermediários.",
             "Periodicidade média global: 83 dias entre compras; 17 clientes (19%) em potencial churn.",
             "Clientes críticos: Centro comercial Moctezuma (657 dias), Mère Paillarde (top 10 receita + risco).",
             "Perfil do churn: França (29%) e EUA (24%) concentram potenciais churns.",
@@ -365,7 +365,7 @@ def build_document(arch_img: Path) -> Path:
     add_bullets(
         doc,
         [
-            "Programa de retenção no mês 1 pós-primeiro pedido.",
+            "Programa de retenção com monitoramento trimestral do churn (meta: manter abaixo de 30%).",
             "Monitoramento semanal dos 17 clientes em potencial churn.",
             "Reativação prioritária na França e EUA.",
             "Ação comercial imediata para Mère Paillarde e demais top clientes em risco.",
